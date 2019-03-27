@@ -49,6 +49,7 @@
                                     <option value="top_up">Top Up</option>
                                     <option value="bkash">BKash</option>
                                     <option value="rocket">Rocket</option>
+                                    <option value="bd_internet">Internet</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-12">

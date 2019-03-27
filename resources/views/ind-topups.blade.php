@@ -42,6 +42,7 @@
                                             <th>Provider</th>
                                             <th>Subscriber Id</th>
                                             <th>Status</th>
+                                            <th>Transaction Id</th>
                                             <th>Create Date</th>
                                             <th></th>
                                         </tr>
@@ -58,6 +59,7 @@
                                             <td>{{ $topup->provider }}</td>
                                             <td>{{ $topup->subscriber_id }}</td>
                                             <td>{{ $topup->status }}</td>
+                                            <td>{{ $topup->topup_transaction_id }}</td>
                                             <td>{{ $topup->created_at }}</td>
                                             
                                             <td>

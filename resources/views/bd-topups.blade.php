@@ -39,6 +39,7 @@
                                             <th>Amount</th>
                                             <th>Operator</th>
                                             <th>Status</th>
+                                            <th>Transaction Id</th>
                                             <th>Create Date</th>
                                             <th></th>
                                         </tr>
@@ -52,6 +53,7 @@
                                             <td>{{ $topup->amount }}</td>
                                             <td>{{ $topup->operator }}</td>
                                             <td>{{ $topup->status }}</td>
+                                            <td>{{ $topup->topup_transaction_id }}</td>
                                             <td>{{ $topup->created_at }}</td>
                                             
                                             <td>
@@ -104,6 +106,7 @@
                                     <option value="top_up">Top Up</option>
                                     <option value="bkash">BKash</option>
                                     <option value="rocket">Rocket</option>
+                                    <option value="bd_internet">Internet</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-12">

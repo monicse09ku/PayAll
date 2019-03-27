@@ -286,7 +286,7 @@ class PaymentController extends Controller
                     return ['message' => 'Invalid Number', 'status' => 'failed'];
                 }
 
-                if($request->payment_type == 'top_up'){
+                if($request->payment_type == 'top_up' || $request->payment_type == 'bd_internet'){
                     if($fund->bal_mr < $request->amount){
                         return ['message' => INSUFFICIENT_FUND, 'status' => 'failed'];
                     }else{
@@ -396,7 +396,7 @@ class PaymentController extends Controller
             }
 
             if($request->topup['country'] == 'bd'){
-                if($request->topup['type'] == 'top_up'){
+                if($request->topup['type'] == 'top_up' || $request->topup['type'] == 'bd_internet'){
                     $update_data['bal_mm'] = $fund->bal_mm + $request->topup['amount'];
                 }else{
                     $update_data['bal_mr'] = $fund->bal_mr + $request->topup['amount'];
@@ -475,8 +475,9 @@ class PaymentController extends Controller
         $data['message'] = $message;
         $data['reload'] = $reload;
         $pusher->trigger('notification-channel.'.$user_id, 'my-event', $data);
+        $user = User::where('id', $user_id)->first();
 
-        mail("monicse09ku@gmail.com","My subject",$message);
+        mail($user->email,"Payment Update",$message);
 
     }
 
